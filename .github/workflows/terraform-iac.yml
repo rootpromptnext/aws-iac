@@ -24,6 +24,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: Setup Terraform
+      # Use the official action to download and set up Terraform CLI
+      uses: hashicorp/setup-terraform@v3
+      with:
+        # Specify the version you need (optional, but recommended)
+        terraform_version: "1.7.1" 
+        # terraform_wrapper: false # Optional, can be used if subsequent steps don't need the wrapper outputs
+
     - name: Set up AWS CLI
       run: |
         echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
