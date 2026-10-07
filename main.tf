@@ -22,6 +22,10 @@ resource "aws_instance" "example" {
   }
 }
 
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "my-bkty187559"
+}
+
 output "instance_public_ip" {
   value = aws_instance.example.public_ip
 }
